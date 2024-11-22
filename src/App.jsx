@@ -1,12 +1,12 @@
 import Header from "./components/Header";
-import Main from "./components/Main";
+import PizzaMenu from "./components/PizzaMenu";
 import "./css/app.css";
 
 function App() {
   return (
     <>
       <Header />
-      <Main />
+      <PizzaMenu />
     </>
   );
 }

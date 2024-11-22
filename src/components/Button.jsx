@@ -1,5 +1,7 @@
-function Button() {
-  return <button className="btn">Start Order</button>;
+function Button(props) {
+  const {className, children} = props;
+
+  return <button className={className}>{children}</button>;
 }
 
 export default Button;

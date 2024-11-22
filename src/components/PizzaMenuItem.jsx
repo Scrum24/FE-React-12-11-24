@@ -5,31 +5,18 @@ function PizzaMenuItem(props) {
   const {imageUrl, name, unitPrice, ingredients, soldOut} = info;
   const ingredientsStr = convertToStr(ingredients);
 
-  if (soldOut) {
-    return (
-      <div className="pizza-item">
-        <img src={imageUrl} alt="Capricciosa Pizza" className="pizza-image" />
-
-        <div className="pizza-info">
-          <h2>{name}</h2>
-          <p className="ingredients">{ingredientsStr}</p>
-          <p className="sold-out">SOLD OUT</p>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="pizza-item">
-      <img src={imageUrl} alt="Margherita Pizza" className="pizza-image" />
+      <img src={imageUrl} alt={`${name} Pizza`} className="pizza-image" />
 
       <div className="pizza-info">
         <h2>{name}</h2>
         <p className="ingredients">{ingredientsStr}</p>
-        <p className="price">€{unitPrice}.00</p>
+        {!soldOut && <p className="price">€{unitPrice}.00</p>}
+        {soldOut && <p className="sold-out">SOLD OUT</p>}
       </div>
 
-      <Button className="add-to-cart">ADD TO CART</Button>
+      {!soldOut && <Button className="add-to-cart">ADD TO CART</Button>}
     </div>
   );
 }

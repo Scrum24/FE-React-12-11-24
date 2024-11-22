@@ -12,8 +12,12 @@ function PizzaMenuItem(props) {
       <div className="pizza-info">
         <h2>{name}</h2>
         <p className="ingredients">{ingredientsStr}</p>
-        {!soldOut && <p className="price">€{unitPrice}.00</p>}
-        {soldOut && <p className="sold-out">SOLD OUT</p>}
+
+        {soldOut ? (
+          <p className="sold-out">SOLD OUT</p>
+        ) : (
+          <p className="price">€{unitPrice}.00</p>
+        )}
       </div>
 
       {!soldOut && <Button className="add-to-cart">ADD TO CART</Button>}

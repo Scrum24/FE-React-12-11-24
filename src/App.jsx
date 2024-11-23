@@ -1,12 +1,16 @@
-import Header from "./components/Header";
-import PizzaMenu from "./components/PizzaMenu";
-import "./css/app.css";
+import {Routes, Route} from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import PizzaMenuPage from "./pages/PizzaMenuPage";
+
+const BASE_URL = "/FE-React-12-11-24";
 
 function App() {
   return (
     <>
-      <Header />
-      <PizzaMenu />
+      <Routes>
+        <Route path={`${BASE_URL}/`} element={<HomePage />} />
+        <Route path={`${BASE_URL}/pizza-menu`} element={<PizzaMenuPage />} />
+      </Routes>
     </>
   );
 }

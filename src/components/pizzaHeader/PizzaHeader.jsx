@@ -1,4 +1,6 @@
-function Header() {
+import "./pizza-header.css";
+
+function PizzaHeader() {
   return (
     <header>
       <div className="logo">PIZZA DAY</div>
@@ -12,4 +14,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default PizzaHeader;

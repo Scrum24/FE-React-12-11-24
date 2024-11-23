@@ -1,6 +1,6 @@
 import Form from "./Form";
 
-function Main() {
+function HomePageMain() {
   return (
     <main>
       <h1>The best pizza.</h1>
@@ -9,4 +9,4 @@ function Main() {
     </main>
   );
 }
-export default Main;
+export default HomePageMain;

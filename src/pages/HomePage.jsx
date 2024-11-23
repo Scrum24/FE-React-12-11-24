@@ -1,12 +1,12 @@
-import Header from "../components/header/Header";
-import Main from "../components/Main";
+import HomePageHeader from "../components/homePageHeader/HomePageHeader";
+import HomePageMain from "../components/HomePageMain";
 import "./../css/home-page.css";
 
 function HomePage() {
   return (
     <>
-      <Header />
-      <Main />
+      <HomePageHeader />
+      <HomePageMain />
     </>
   );
 }

@@ -1,15 +1,14 @@
 import {Routes, Route} from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import PizzaMenuPage from "./pages/PizzaMenuPage";
-
-const BASE_URL = "/FE-React-12-11-24";
+import "./css/main.css";
 
 function App() {
   return (
     <>
       <Routes>
-        <Route path={`${BASE_URL}/`} element={<HomePage />} />
-        <Route path={`${BASE_URL}/pizza-menu`} element={<PizzaMenuPage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/pizza-menu" element={<PizzaMenuPage />} />
       </Routes>
     </>
   );

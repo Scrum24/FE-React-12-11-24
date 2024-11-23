@@ -1,7 +1,5 @@
 function Button(props) {
-  const {className, children} = props;
-
-  return <button className={className}>{children}</button>;
+  return <button {...props}></button>;
 }
 
 export default Button;

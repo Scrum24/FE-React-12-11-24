@@ -1,7 +1,7 @@
 import {Routes, Route} from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import PizzaMenuPage from "./pages/PizzaMenuPage";
-import "./css/main.css";
+import HomePage from "./components/homePage/HomePage";
+import PizzaMenuPage from "./components/pizzaPage/PizzaMenuPage";
+import "./main.css";
 
 function App() {
   return (

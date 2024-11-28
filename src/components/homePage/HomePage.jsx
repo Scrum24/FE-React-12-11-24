@@ -4,10 +4,10 @@ import "./home-page.css";
 
 function HomePage() {
   return (
-    <>
+    <div className="home-page-wrap">
       <HomePageHeader />
       <HomePageMain />
-    </>
+    </div>
   );
 }
 

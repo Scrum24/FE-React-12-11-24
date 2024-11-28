@@ -1,5 +1,6 @@
 import PizzaMenuItem from "./PizzaMenuItem.jsx";
 import {pizzas} from "./pizzas.js";
+import "./pizza-page.css";
 
 function PizzaMenu() {
   return (

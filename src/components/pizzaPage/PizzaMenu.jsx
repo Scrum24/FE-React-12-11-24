@@ -1,5 +1,4 @@
 import PizzaMenuItem from "./PizzaMenuItem.jsx";
-import {pizzas} from "./pizzas.js";
 import "./pizza-page.css";
 import {useEffect, useState} from "react";
 

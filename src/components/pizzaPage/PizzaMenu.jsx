@@ -6,7 +6,7 @@ function PizzaMenu() {
   const [pizzas, setPizzas] = useState([]);
 
   useEffect(() => {
-    const defaultPizzaList = async () => {
+    const getDefaultPizzaList = async () => {
       try {
         const res = await fetch(
           "https://react-fast-pizza-api.onrender.com/api/menu"
@@ -23,7 +23,7 @@ function PizzaMenu() {
       }
     };
 
-    defaultPizzaList();
+    getDefaultPizzaList();
   }, []);
 
   return (

@@ -1,8 +1,10 @@
-import Input from "../Input";
-import Button from "../Button";
+import Input from "./../../Input";
+import Button from "./../../Button";
 import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 function Form() {
+  const navigate = useNavigate();
   const [userName, setUserName] = useState("");
 
   function updateUserName(e) {
@@ -12,6 +14,8 @@ function Form() {
   function onSubmit(event) {
     event.preventDefault();
     console.log(userName);
+
+    navigate("/pizza-menu");
   }
 
   return (

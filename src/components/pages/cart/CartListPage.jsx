@@ -1,4 +1,4 @@
-import PizzaHeader from "../pizzaPage/PizzaHeader";
+import PizzaHeader from "../pizzaMenu/PizzaHeader";
 import CardList from "./CartList";
 
 function CartListPage() {

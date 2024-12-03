@@ -1,6 +1,6 @@
 import CartItem from "./CartItem.jsx";
 import {cartItems} from "./cartItems.js";
-import Button from "../Button.jsx";
+import Button from "./../../Button.jsx";
 import {Link} from "react-router-dom";
 import "./cart-list-body.css";
 

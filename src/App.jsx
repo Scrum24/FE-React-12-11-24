@@ -4,6 +4,7 @@ import PizzaMenuPage from "./components/pages/pizzaMenu/PizzaMenuPage";
 import CartListPage from "./components/pages/cart/CartListPage";
 import NotFoundPage from "./components/pages/notFound/NotFoundPage";
 import OrderFormPage from "./components/pages/orderForm/OrderFormPage";
+import OrderStatusPage from "./components/pages/orderStatus/OrderStatusPage";
 import "./main.css";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/pizza-menu" element={<PizzaMenuPage />} />
         <Route path="/cart-list" element={<CartListPage />} />
         <Route path="/order-form" element={<OrderFormPage />} />
+        <Route path="/orders/:id" element={<OrderStatusPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>

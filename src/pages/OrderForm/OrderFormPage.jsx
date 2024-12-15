@@ -1,6 +1,6 @@
-import OrderFormInput from "./OrderFormInput";
 import Button from "../../components/Button";
 import "./order-form-page.css";
+import Input from "../../components/Input";
 
 function OrderFormPage() {
   function onSubmit(event) {
@@ -16,7 +16,7 @@ function OrderFormPage() {
         <form onSubmit={onSubmit}>
           <div className="form-group">
             <label htmlFor="firstName">First Name</label>
-            <OrderFormInput
+            <Input
               type="text"
               id="firstName"
               defaultValue="vlad"
@@ -26,19 +26,19 @@ function OrderFormPage() {
 
           <div className="form-group">
             <label htmlFor="phone">Phone number</label>
-            <OrderFormInput type="tel" id="phone" required />
+            <Input type="tel" id="phone" required />
           </div>
 
           <div className="form-group">
             <label htmlFor="address">Address</label>
             <div className="input-wrapper">
-              <OrderFormInput type="text" id="address" required />
+              <Input type="text" id="address" required />
             </div>
           </div>
 
           <div className="checkbox-group">
             <div className="checkbox-wrapper">
-              <OrderFormInput type="checkbox" id="priority" />
+              <Input type="checkbox" id="priority" />
               <label htmlFor="priority">
                 Want to give your order priority?
               </label>

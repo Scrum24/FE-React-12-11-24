@@ -1,5 +1,5 @@
 import React, {useContext, useState} from "react";
-import Input from "./Input";
+import Input from "../../components/Input";
 import Button from "../../components/Button";
 import {useNavigate} from "react-router-dom";
 import {UserInfoContext} from "../../contexts/UserInfoContextProvider";
@@ -26,7 +26,11 @@ function Form() {
       <p className="welcome">
         👉 Welcome! Please start by telling us your name:
       </p>
-      <Input value={userName} onChange={updateUserName} />
+      <Input type="text"
+             placeholder="Your full name"
+             aria-label="Your full name"
+             value={userName}
+             onChange={updateUserName} />
       <Button className="btn">Start Order</Button>
     </form>
   );

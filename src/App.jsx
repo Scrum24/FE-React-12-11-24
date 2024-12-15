@@ -1,10 +1,10 @@
 import {Routes, Route} from "react-router-dom";
-import HomePage from "./components/pages/mainForm/HomePage";
-import PizzaMenuPage from "./components/pages/pizzaMenu/PizzaMenuPage";
-import CartListPage from "./components/pages/cart/CartListPage";
-import NotFoundPage from "./components/pages/notFound/NotFoundPage";
-import OrderFormPage from "./components/pages/orderForm/OrderFormPage";
-import OrderStatusPage from "./components/pages/orderStatus/OrderStatusPage";
+import HomePage from "./pages/MainForm/HomePage";
+import PizzaMenuPage from "./pages/PizzaMenu/PizzaMenuPage";
+import CartListPage from "./pages/Cart/CartListPage";
+import NotFoundPage from "./pages/NotFound/NotFoundPage";
+import OrderFormPage from "./pages/OrderForm/OrderFormPage";
+import OrderStatusPage from "./pages/OrderStatus/OrderStatusPage";
 import "./main.css";
 
 function App() {

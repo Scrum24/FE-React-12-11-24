@@ -1,4 +1,4 @@
-import Navigation from "./../../navigation/Navigation";
+import Navigation from "../../components/navigation/Navigation";
 import "./home-page-header.css";
 
 function HomePageHeader() {

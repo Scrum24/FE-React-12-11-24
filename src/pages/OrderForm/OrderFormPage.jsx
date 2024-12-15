@@ -1,5 +1,5 @@
 import OrderFormInput from "./OrderFormInput";
-import Button from "./../../Button";
+import Button from "../../components/Button";
 import "./order-form-page.css";
 
 function OrderFormPage() {

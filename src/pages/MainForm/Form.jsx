@@ -1,8 +1,8 @@
 import React, {useContext, useState} from "react";
 import Input from "./Input";
-import Button from "./../../Button";
+import Button from "../../components/Button";
 import {useNavigate} from "react-router-dom";
-import {UserInfoContext} from "../../../contexts/UserInfoContextProvider";
+import {UserInfoContext} from "../../contexts/UserInfoContextProvider";
 
 function Form() {
   const navigate = useNavigate();

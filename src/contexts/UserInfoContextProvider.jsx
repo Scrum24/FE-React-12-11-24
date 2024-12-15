@@ -1,9 +1,9 @@
 import React, {createContext, useState} from "react";
 
-export const AppContext = createContext();
-AppContext.displayName = "AppContext";
+export const UserInfoContext = createContext();
+UserInfoContext.displayName = "UserInfoContext";
 
-function AppContextProvider({children}) {
+function UserInfoContextProvider({children}) {
   const [userInfo, setUserInfo] = useState({userName: null});
 
   function updateContextUserName(newUserName) {
@@ -16,8 +16,10 @@ function AppContextProvider({children}) {
   };
 
   return (
-    <AppContext.Provider value={userInfoValue}>{children}</AppContext.Provider>
+    <UserInfoContext.Provider value={userInfoValue}>
+      {children}
+    </UserInfoContext.Provider>
   );
 }
 
-export default AppContextProvider;
+export default UserInfoContextProvider;

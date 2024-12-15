@@ -2,12 +2,12 @@ import React, {useContext, useState} from "react";
 import Input from "./Input";
 import Button from "./../../Button";
 import {useNavigate} from "react-router-dom";
-import {AppContext} from "./../../AppContextProvider";
+import {UserInfoContext} from "../../../contexts/UserInfoContextProvider";
 
 function Form() {
   const navigate = useNavigate();
   const [userName, setUserName] = useState("");
-  const {updateContextUserName} = useContext(AppContext);
+  const {updateContextUserName} = useContext(UserInfoContext);
 
   function updateUserName(e) {
     setUserName(e.target.value);

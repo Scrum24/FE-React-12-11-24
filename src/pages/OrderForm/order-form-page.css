@@ -81,3 +81,7 @@ body:has(.order-p) {
 .order-p input {
   margin-bottom: 0;
 }
+
+.order-p .error {
+  color: red;
+}

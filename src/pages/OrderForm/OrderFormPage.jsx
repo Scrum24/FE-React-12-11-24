@@ -75,7 +75,6 @@ function OrderFormPage() {
               control={control}
               regtype="phone"
               name="phone"
-              // required
             />
           </div>
 
@@ -88,7 +87,6 @@ function OrderFormPage() {
                 control={control}
                 regtype="address"
                 name="address"
-                // required
               />
             </div>
           </div>

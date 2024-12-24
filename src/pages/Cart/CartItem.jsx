@@ -1,8 +1,11 @@
 import Button from "../../components/Button.jsx";
+import {useContext} from "react";
+import {PizzaContext} from "../../contexts/PizzaContextProvider";
 
 function CartItem(props) {
-  const {cardItemInfo} = props;
-  const {name, price, quantity} = cardItemInfo;
+    const { incrementPizzaCount, decrementPizzaCount, removePizza} = useContext(PizzaContext);
+    const {cardItemInfo} = props;
+    const {id, name, unitPrice: price, orderCount: quantity} = cardItemInfo;
 
   return (
     <div className="cart-item">
@@ -11,10 +14,10 @@ function CartItem(props) {
       <span className="price">€{price * quantity}</span>
 
       <div className="quantity-controls">
-        <Button className="quantity-btn">-</Button>
+        <Button className="quantity-btn" onClick={() => decrementPizzaCount(id)}>-</Button>
         <span>{quantity}</span>
-        <Button className="quantity-btn">+</Button>
-        <Button className="delete-btn">DELETE</Button>
+        <Button className="quantity-btn" onClick={() => incrementPizzaCount(cardItemInfo)}>+</Button>
+        <Button className="delete-btn" onClick={() => removePizza(id)}>DELETE</Button>
       </div>
     </div>
   );

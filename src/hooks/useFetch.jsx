@@ -17,7 +17,7 @@ const useFetch = (url) => {
         }
 
         const data = await res.json();
-        setData(data);
+        setData(data.data);
       } catch (e) {
         console.log(e.message);
         setError(e.message);

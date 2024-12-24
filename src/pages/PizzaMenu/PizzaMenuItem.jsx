@@ -1,23 +1,30 @@
-import {useState} from "react";
+import {useContext, useState} from "react";
 import Button from "../../components/Button.jsx";
 
+import {PizzaContext} from "../../contexts/PizzaContextProvider";
+
 function PizzaMenuItem(props) {
+  const {incrementPizzaCount, decrementPizzaCount} = useContext(PizzaContext);
+
   const {info} = props;
   const {imageUrl, name, unitPrice, ingredients, soldOut} = info;
   const ingredientsStr = convertToStr(ingredients);
 
   const [pizzaCount, setPizzaCount] = useState(0);
 
-  function activatePizzaCounter() {
+  function activatePizzaCounter(info) {
     setPizzaCount(1);
+    incrementPizzaCount(info);
   }
 
-  function decrement() {
+  function decrement(info) {
     setPizzaCount(pizzaCount - 1);
+    decrementPizzaCount(info.id);
   }
 
-  function increment() {
+  function increment(info) {
     setPizzaCount(pizzaCount + 1);
+    incrementPizzaCount(info);
   }
 
   return (
@@ -38,7 +45,7 @@ function PizzaMenuItem(props) {
       {!soldOut && (
         <div className="cart-controls">
           {pizzaCount === 0 ? (
-            <Button className="add-to-cart" onClick={activatePizzaCounter}>
+            <Button className="add-to-cart" onClick={() => activatePizzaCounter(info)}>
               ADD TO CART
             </Button>
           ) : (
@@ -46,7 +53,7 @@ function PizzaMenuItem(props) {
               <Button
                 className="decrement"
                 aria-label="Decrease quantity"
-                onClick={decrement}
+                onClick={() => decrement(info)}
               >
                 -
               </Button>
@@ -54,7 +61,7 @@ function PizzaMenuItem(props) {
               <Button
                 className="increment"
                 aria-label="Increase quantity"
-                onClick={increment}
+                onClick={() => increment(info)}
               >
                 +
               </Button>

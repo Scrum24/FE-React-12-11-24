@@ -53,9 +53,9 @@ function OrderFormPage() {
               name="firstName"
             />
           </div>
-          {errors.firstName && (
-            <p className="error">{errors.firstName.message}</p>
-          )}
+          <p className="error">
+            {errors.firstName && errors.firstName.message}
+          </p>
 
           <div className="form-group">
             <label htmlFor="phone">Phone number</label>
@@ -67,7 +67,7 @@ function OrderFormPage() {
               name="phone"
             />
           </div>
-          {errors.phone && <p className="error">{errors.phone.message}</p>}
+          <p className="error">{errors.phone && errors.phone.message}</p>
 
           <div className="form-group">
             <label htmlFor="address">Address</label>
@@ -81,7 +81,7 @@ function OrderFormPage() {
               />
             </div>
           </div>
-          {errors.address && <p className="error">{errors.address.message}</p>}
+          <p className="error">{errors.address && errors.address.message}</p>
 
           <div className="checkbox-group">
             <div className="checkbox-wrapper">
@@ -97,9 +97,7 @@ function OrderFormPage() {
               </label>
             </div>
           </div>
-          {errors.priority && (
-            <p className="error">{errors.priority.message}</p>
-          )}
+          <p className="error">{errors.priority && errors.priority.message}</p>
 
           <Button type="submit" className="order-btn">
             Order now for €12.00

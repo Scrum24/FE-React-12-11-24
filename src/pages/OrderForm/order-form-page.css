@@ -85,3 +85,18 @@ body:has(.order-p) {
 .order-p .error {
   color: red;
 }
+
+.order-p div.form-group {
+  margin-bottom: 0;
+}
+
+.order-p p.error {
+  margin-top: 3px;
+  margin-bottom: 15px;
+  height: 14px;
+  font-size: 14px;
+}
+
+.order-p div.checkbox-group {
+  margin: 20px 0;
+}

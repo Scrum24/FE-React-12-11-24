@@ -36,19 +36,6 @@ function OrderFormPage() {
     reset();
   };
 
-  let errorBlock = null;
-  if (errors.firstName || errors.phone || errors.address || errors.priority) {
-    errorBlock = (
-      <div className="error">
-        Errors:
-        {errors.firstName && <p>{errors.firstName.message}</p>}
-        {errors.phone && <p>{errors.phone.message}</p>}
-        {errors.address && <p>{errors.address.message}</p>}
-        {errors.priority && <p>{errors.priority.message}</p>}
-      </div>
-    );
-  }
-
   return (
     <>
       <div className="order-p container">
@@ -66,6 +53,9 @@ function OrderFormPage() {
               name="firstName"
             />
           </div>
+          {errors.firstName && (
+            <p className="error">{errors.firstName.message}</p>
+          )}
 
           <div className="form-group">
             <label htmlFor="phone">Phone number</label>
@@ -77,6 +67,7 @@ function OrderFormPage() {
               name="phone"
             />
           </div>
+          {errors.phone && <p className="error">{errors.phone.message}</p>}
 
           <div className="form-group">
             <label htmlFor="address">Address</label>
@@ -90,6 +81,7 @@ function OrderFormPage() {
               />
             </div>
           </div>
+          {errors.address && <p className="error">{errors.address.message}</p>}
 
           <div className="checkbox-group">
             <div className="checkbox-wrapper">
@@ -105,14 +97,14 @@ function OrderFormPage() {
               </label>
             </div>
           </div>
+          {errors.priority && (
+            <p className="error">{errors.priority.message}</p>
+          )}
 
           <Button type="submit" className="order-btn">
             Order now for €12.00
           </Button>
         </form>
-
-        <br />
-        {errorBlock}
       </div>
     </>
   );

@@ -5,29 +5,30 @@ PizzaContext.displayName = "PizzaContext";
 
 function PizzaContextProvider({children}) {
     const initialState = {
-        pizzaOrderList: [],
+        preOrderPizzaList: [],
+        successfulOrders: []
     };
     const reducer = (state, action) => {
         switch (action.type) {
             case "INCREMENT_PIZZA_COUNT":
-                const pizzaForIncrement = state.pizzaOrderList.find(
+                const pizzaForIncrement = state.preOrderPizzaList.find(
                     (pizza) => pizza.id === action.payload.id
                 );
 
                 if (!pizzaForIncrement) {
                     action.payload.orderCount = 1;
-                    state.pizzaOrderList.push(action.payload);
-                    return {...state, pizzaOrderList: [...state.pizzaOrderList]};
+                    state.preOrderPizzaList.push(action.payload);
+                    return {...state, preOrderPizzaList: [...state.preOrderPizzaList]};
                 }
 
                 pizzaForIncrement.orderCount = pizzaForIncrement.orderCount + 1;
-                const updatedList = state.pizzaOrderList.map((pizza) =>
+                const updatedList = state.preOrderPizzaList.map((pizza) =>
                     pizza.id === pizzaForIncrement.id ? pizzaForIncrement : pizza
                 );
-                return {...state, pizzaOrderList: [...updatedList]};
+                return {...state, preOrderPizzaList: [...updatedList]};
 
             case "DECREMENT_PIZZA_COUNT":
-                const pizzaForDecrement = state.pizzaOrderList.find(
+                const pizzaForDecrement = state.preOrderPizzaList.find(
                     (pizza) => pizza.id === action.payload
                 );
 
@@ -36,26 +37,38 @@ function PizzaContextProvider({children}) {
                 }
 
                 if (pizzaForDecrement.orderCount <= 1) {
-                    const filteredList = state.pizzaOrderList.filter(
+                    const filteredList = state.preOrderPizzaList.filter(
                         (pizza) => pizza.id !== action.payload
                     );
-                    return {...state, pizzaOrderList: [...filteredList]};
+                    return {...state, preOrderPizzaList: [...filteredList]};
                 }
 
                 pizzaForDecrement.orderCount = pizzaForDecrement.orderCount - 1;
-                const newList = state.pizzaOrderList.map((pizza) =>
+                const newList = state.preOrderPizzaList.map((pizza) =>
                     pizza.id === action.payload.id ? pizzaForDecrement : pizza
                 );
-                return {...state, pizzaOrderList: [...newList]};
+                return {...state, preOrderPizzaList: [...newList]};
 
             case "REMOVE_PIZZA_FROM_ORDER":
-                const listWithoutPizza = state.pizzaOrderList.filter(
+                const listWithoutPizza = state.preOrderPizzaList.filter(
                     (pizza) => pizza.id !== action.payload
                 );
-                return {...state, pizzaOrderList: listWithoutPizza}
+                return {...state, preOrderPizzaList: listWithoutPizza}
 
             case "REMOVE_ALL_PIZZAS":
-                return {...state, pizzaOrderList: []}
+                return {...state, preOrderPizzaList: []}
+
+            case "ADD_SUCCESSFUL_ORDER":
+                state.successfulOrders.push(action.payload);
+
+                for (const currentCart of action.payload.data.cart) {
+                    state.preOrderPizzaList.forEach(preOrderPizza => {
+                            if (preOrderPizza.id === currentCart.pizzaId) {
+                                preOrderPizza.ordered = true;
+                            }
+                    })
+                }
+                return {...state, successfulOrders: [...state.successfulOrders]}
 
             default:
                 return state;
@@ -90,11 +103,19 @@ function PizzaContextProvider({children}) {
         });
     };
 
+    const addSuccessfulOrderData = (successfulOrderData) => {
+        dispatch({
+            type: "ADD_SUCCESSFUL_ORDER",
+            payload: successfulOrderData
+        });
+    };
+
     const value = {
         incrementPizzaCount,
         decrementPizzaCount,
         removePizza,
         removeAllPizzas,
+        addSuccessfulOrderData,
         state,
     };
 

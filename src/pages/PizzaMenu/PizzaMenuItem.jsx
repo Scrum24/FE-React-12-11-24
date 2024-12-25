@@ -2,13 +2,14 @@ import {useContext, useState} from "react";
 import Button from "../../components/Button.jsx";
 
 import {PizzaContext} from "../../contexts/PizzaContextProvider";
+import {convertIngredientsToStr} from "./pizzaMenuItemHelper";
 
 function PizzaMenuItem(props) {
   const {incrementPizzaCount, decrementPizzaCount} = useContext(PizzaContext);
 
   const {info} = props;
   const {imageUrl, name, unitPrice, ingredients, soldOut} = info;
-  const ingredientsStr = convertToStr(ingredients);
+  const ingredientsStr = convertIngredientsToStr(ingredients);
 
   const [pizzaCount, setPizzaCount] = useState(0);
 
@@ -71,15 +72,6 @@ function PizzaMenuItem(props) {
       )}
     </div>
   );
-}
-
-function convertToStr(arr) {
-  return arr
-    .map(
-      (ingredient) =>
-        `${ingredient.charAt(0).toUpperCase()}${ingredient.substr(1)}`
-    )
-    .join(", ");
 }
 
 export default PizzaMenuItem;

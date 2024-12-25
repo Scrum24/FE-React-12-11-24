@@ -7,7 +7,7 @@ import {useContext} from "react";
 import {PizzaContext} from "../../contexts/PizzaContextProvider";
 
 function CartList() {
-    const { removeAllPizzas, state : {pizzaOrderList}} = useContext(PizzaContext);
+    const { removeAllPizzas, state : {preOrderPizzaList}} = useContext(PizzaContext);
 
   return (
     <div className="container">
@@ -17,7 +17,7 @@ function CartList() {
       <h1 className="cart-title">Your cart, vlad</h1>
 
       <div className="cart-items">
-        {pizzaOrderList.map((cardItem) => (
+        {preOrderPizzaList.map((cardItem) => (
           <CartItem key={cardItem.id} cardItemInfo={cardItem} />
         ))}
       </div>
